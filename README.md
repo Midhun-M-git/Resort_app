@@ -46,7 +46,7 @@ inspired by platforms like BookMyShow — but for luxury resort stays.
 ## 🚀 Getting Started
 
 1. Clone the repo
-   git clone https://github.com/yourusername/resort-booking-app.git
+   git clone https://github.com/Midhun-M-git/Resort_app.git
 
 2. Install dependencies
    flutter pub get
