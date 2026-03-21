@@ -1,0 +1,47 @@
+﻿Analyzing resort_app...                                         
+
+warning - Unused import: 'package:flutter/material.dart' - lib\core\router\app_router.dart:1:8 - unused_import
+   info - Unnecessary use of multiple underscores - lib\core\router\app_router.dart:33:39 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\core\router\app_router.dart:34:44 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\core\router\app_router.dart:35:47 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\core\router\app_router.dart:36:44 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\core\router\app_router.dart:45:50 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\core\router\app_router.dart:46:46 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\core\router\app_router.dart:48:44 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\core\router\app_router.dart:49:50 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\core\router\app_router.dart:50:54 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\core\router\app_router.dart:55:53 - unnecessary_underscores
+  error - The argument type 'CardTheme' can't be assigned to the parameter type 'CardThemeData?'.  - lib\core\theme\app_theme.dart:46:20 - argument_type_not_assignable
+   info - Statements in an if should be enclosed in a block - lib\features\admin\presentation\admin_add_room_screen.dart:90:20 - curly_braces_in_flow_control_structures
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\features\admin\presentation\admin_add_room_screen.dart:124:15 - deprecated_member_use
+   info - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre - lib\features\admin\presentation\admin_add_room_screen.dart:186:15 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block - lib\features\admin\presentation\admin_bookings_screen.dart:32:26 - curly_braces_in_flow_control_structures
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\admin\presentation\admin_bookings_screen.dart:54:62 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\admin\presentation\admin_bookings_screen.dart:77:99 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\admin\presentation\admin_dashboard_screen.dart:99:24 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\admin\presentation\admin_dashboard_screen.dart:101:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\admin\presentation\admin_dashboard_screen.dart:108:67 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\admin\presentation\admin_rooms_screen.dart:63:68 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\admin\presentation\admin_rooms_screen.dart:63:99 - deprecated_member_use
+  error - The function 'StateNotifierProvider' isn't defined - lib\features\auth\providers\auth_provider.dart:14:22 - undefined_function
+  error - Classes can only extend other classes - lib\features\auth\providers\auth_provider.dart:17:28 - extends_non_class
+  error - Too many positional arguments: 0 expected, but 1 found - lib\features\auth\providers\auth_provider.dart:19:38 - extra_positional_arguments
+  error - Undefined name 'state' - lib\features\auth\providers\auth_provider.dart:22:5 - undefined_identifier
+  error - Undefined name 'state' - lib\features\auth\providers\auth_provider.dart:29:7 - undefined_identifier
+  error - Undefined name 'state' - lib\features\auth\providers\auth_provider.dart:31:7 - undefined_identifier
+  error - Undefined name 'state' - lib\features\auth\providers\auth_provider.dart:36:5 - undefined_identifier
+  error - Undefined name 'state' - lib\features\auth\providers\auth_provider.dart:39:7 - undefined_identifier
+  error - Undefined name 'state' - lib\features\auth\providers\auth_provider.dart:41:7 - undefined_identifier
+warning - The declaration '_totalPrice' isn't referenced - lib\features\booking\presentation\booking_screen.dart:31:14 - unused_element
+warning - The value of the local variable 'nights' isn't used - lib\features\booking\presentation\booking_screen.dart:33:11 - unused_local_variable
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\booking\presentation\my_bookings_screen.dart:68:61 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\features\home\presentation\home_screen.dart:50:32 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\features\home\presentation\home_screen.dart:77:36 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\home\presentation\home_screen.dart:118:48 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\features\home\presentation\home_screen.dart:157:28 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\features\home\presentation\home_screen.dart:171:24 - unnecessary_underscores
+  error - The function 'StateProvider' isn't defined - lib\features\rooms\presentation\rooms_list_screen.dart:10:25 - undefined_function
+   info - Unnecessary use of multiple underscores - lib\features\rooms\presentation\rooms_list_screen.dart:71:26 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\rooms\presentation\rooms_list_screen.dart:108:51 - deprecated_member_use
+  error - The name 'MyApp' isn't a class - test\widget_test.dart:16:35 - creation_with_non_type
+
