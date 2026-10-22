@@ -28,11 +28,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
   bool _loading = false;
   CalendarFormat _calFormat = CalendarFormat.month;
 
-  double get _totalPrice {
-    if (_checkIn == null || _checkOut == null) return 0;
-    final nights = _checkOut!.difference(_checkIn!).inDays;
-    return 0; // Will be calculated after room loads
-  }
+
 
   Future<void> _confirmBooking(double pricePerNight) async {
     if (!_formKey.currentState!.validate()) return;
