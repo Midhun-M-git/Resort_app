@@ -5,11 +5,55 @@
 [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
 [![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
+[![Analysis](https://github.com/Midhun-M-git/Resort_app/actions/workflows/analyze.yml/badge.svg)](https://github.com/Midhun-M-git/Resort_app/actions/workflows/analyze.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
 </div>
 
-A full-stack resort room booking application built with Flutter and Supabase, designed for luxury resort stay management.
+A full-stack cross-platform luxury resort room booking application built with Flutter and Supabase. Features real-time availability checks, role-based admin oversight, and booking telemetry.
+
+---
+
+## Architecture and Dataflow
+
+```mermaid
+graph TD
+    subgraph Client Application
+        UI[Flutter Presentation Layer]
+        State[Riverpod v2 State Management]
+        Router[GoRouter Navigation]
+    end
+
+    subgraph Backend Infrastructure
+        Auth[Supabase Auth Engine]
+        DB[(PostgreSQL Database)]
+        RLS[Row Level Security Engine]
+    end
+
+    UI --> State
+    State --> Router
+    State -->|JWT Authenticated Session| Auth
+    State -->|Direct RPC / REST Queries| RLS
+    RLS -->|Filtered Queries| DB
+```
+
+---
+
+## Booking State Machine
+
+```mermaid
+stateDiagram-v2
+    [*] --> RoomSearch: User selects dates & capacity
+    RoomSearch --> RoomDetails: Room available
+    RoomDetails --> PendingBooking: Confirm booking request
+    PendingBooking --> Confirmed: Admin approval / Auto-confirmation
+    Confirmed --> CheckedIn: Guest arrives
+    CheckedIn --> Completed: Check-out completed
+    PendingBooking --> Cancelled: User cancels / Timeout
+    Confirmed --> Cancelled: Admin cancellation
+    Completed --> [*]
+    Cancelled --> [*]
+```
 
 ---
 
@@ -17,34 +61,54 @@ A full-stack resort room booking application built with Flutter and Supabase, de
 
 ### User Experience
 - Register and login with Supabase Authentication
-- Browse rooms filtered by type (Standard, Deluxe, Suite, Villa, Presidential)
-- View room details including floor, capacity, amenities, and price per night
-- Real-time availability checks by custom date ranges
-- Room booking with adult/children guest counters and calendar date picker
-- Special requests, guest information, and automated price calculations
-- Track personal bookings with real-time status indicators
+- Dynamic room directory filtered by category (Standard, Deluxe, Suite, Villa, Presidential)
+- Granular room profiles detailing floor plan, capacity, amenities, and nightly pricing
+- Real-time room availability verification against current reservations
+- Date range picker with guest volume controls (Adults and Children)
+- Automated price calculation engine including taxes and special requests
+- Reservation history dashboard with real-time status tracking
 
-### Admin Panel
-- Secure role-based access control (Admin vs User)
-- Operational dashboard with metrics: total rooms, revenue, and occupancy rates
-- Complete room inventory CRUD management
-- Instant room availability toggling
-- Centralized booking oversight across all users
-- Lifecycle booking state updates (Pending -> Confirmed -> Completed / Cancelled)
+### Administrative Controls
+- Role-based access control protecting administrative endpoints
+- Operational dashboard displaying total rooms, gross revenue, and occupancy rates
+- Complete inventory CRUD management with instant status toggling
+- Centralized booking oversight with filterable reservation records
+- Administrative status transitions (Pending -> Confirmed -> Completed / Cancelled)
 
 ---
 
-## Tech Stack
+## Database Schema Overview
 
-| Layer | Technology |
-| :--- | :--- |
-| Frontend | Flutter (Dart) |
-| Backend | Supabase (PostgreSQL, Auth, Row Level Security) |
-| State Management | Riverpod v2 |
-| Navigation | GoRouter |
-| Typography | Google Fonts (Playfair Display, Lato) |
-| Data Visualization | fl_chart |
-| Scheduling | table_calendar |
+```mermaid
+erDiagram
+    PROFILES ||--o{ BOOKINGS : places
+    ROOMS ||--o{ BOOKINGS : includes
+    
+    PROFILES {
+        uuid id PK
+        string email
+        string full_name
+        string role
+        timestamp created_at
+    }
+    ROOMS {
+        uuid id PK
+        string room_number
+        string room_type
+        decimal price_per_night
+        int capacity
+        boolean is_available
+    }
+    BOOKINGS {
+        uuid id PK
+        uuid user_id FK
+        uuid room_id FK
+        date check_in
+        date check_out
+        decimal total_price
+        string status
+    }
+```
 
 ---
 
@@ -72,16 +136,16 @@ A full-stack resort room booking application built with Flutter and Supabase, de
 
 3. Set up Supabase:
    - Create a project on [supabase.com](https://supabase.com)
-   - Execute the SQL schema from `supabase_schema.sql` in the SQL Editor
-   - Copy your project URL and anon public key
+   - Execute the schema definitions from `supabase_schema.sql` in the SQL Editor
+   - Copy your project URL and public anon key
 
-4. Configure environment variables in `.env`:
+4. Configure environment credentials in `.env`:
    ```env
    SUPABASE_URL=https://your-project.supabase.co
    SUPABASE_ANON_KEY=your-anon-key
    ```
 
-5. Run the application:
+5. Launch the application:
    ```bash
    flutter run
    ```
@@ -90,10 +154,10 @@ A full-stack resort room booking application built with Flutter and Supabase, de
 
 ## Admin Configuration
 
-To grant administrative privileges:
-1. Navigate to your Supabase Dashboard -> Table Editor -> `profiles`.
-2. Locate your user record.
-3. Update the `role` field from `user` to `admin`.
+To promote a registered account to Administrator:
+1. Navigate to Supabase Dashboard -> Table Editor -> `profiles`.
+2. Locate the target user row.
+3. Update the `role` value from `user` to `admin`.
 
 ---
 
