@@ -1,4 +1,4 @@
-# 🏨 Resort Booking App
+# Resort Booking App
 
 <div align="center">
 
@@ -9,69 +9,94 @@
 
 </div>
 
-A full-stack resort room booking application built with Flutter and Supabase, 
-inspired by platforms like BookMyShow — but for luxury resort stays.
+A full-stack resort room booking application built with Flutter and Supabase, designed for luxury resort stay management.
 
-## ✨ Features
+---
 
-### 👤 User Side
-- Register / Login with Supabase Auth
+## Features
+
+### User Experience
+- Register and login with Supabase Authentication
 - Browse rooms filtered by type (Standard, Deluxe, Suite, Villa, Presidential)
-- View room details — floor, capacity, amenities, price per night
-- Real-time availability check by date range
-- Book rooms with adult/children guest counters and calendar date picker
-- Special requests, guest info, and automatic price calculation
-- View and track all personal bookings with status badges
+- View room details including floor, capacity, amenities, and price per night
+- Real-time availability checks by custom date ranges
+- Room booking with adult/children guest counters and calendar date picker
+- Special requests, guest information, and automated price calculations
+- Track personal bookings with real-time status indicators
 
-### 🛠️ Admin Panel (built into the app)
-- Secure role-based access (admin vs user)
-- Dashboard with live stats — total rooms, revenue, occupancy
-- Add, edit, delete rooms with full details
-- Toggle room availability instantly
-- View all bookings across all users
-- Update booking status — Pending → Confirmed → Completed / Cancelled
+### Admin Panel
+- Secure role-based access control (Admin vs User)
+- Operational dashboard with metrics: total rooms, revenue, and occupancy rates
+- Complete room inventory CRUD management
+- Instant room availability toggling
+- Centralized booking oversight across all users
+- Lifecycle booking state updates (Pending -> Confirmed -> Completed / Cancelled)
 
-## 🧰 Tech Stack
+---
 
-| Layer       | Technology                          |
-|-------------|-------------------------------------|
-| Frontend    | Flutter (Dart)                      |
-| Backend     | Supabase (PostgreSQL + Auth + RLS)  |
-| State Mgmt  | Riverpod v2                         |
-| Navigation  | GoRouter                            |
-| UI/Fonts    | Google Fonts (Playfair Display + Lato) |
-| Charts      | fl_chart                            |
-| Calendar    | table_calendar                      |
+## Tech Stack
 
-## 📱 Platforms
-- ✅ Android
-- ✅ iOS
-- ✅ Web
-- ✅ Windows
+| Layer | Technology |
+| :--- | :--- |
+| Frontend | Flutter (Dart) |
+| Backend | Supabase (PostgreSQL, Auth, Row Level Security) |
+| State Management | Riverpod v2 |
+| Navigation | GoRouter |
+| Typography | Google Fonts (Playfair Display, Lato) |
+| Data Visualization | fl_chart |
+| Scheduling | table_calendar |
 
-## 🚀 Getting Started
+---
 
-1. Clone the repo
+## Supported Platforms
+
+- Android
+- iOS
+- Web
+- Windows Desktop
+
+---
+
+## Getting Started
+
+1. Clone the repository:
+   ```bash
    git clone https://github.com/Midhun-M-git/Resort_app.git
+   cd Resort_app
+   ```
 
-2. Install dependencies
+2. Install dependencies:
+   ```bash
    flutter pub get
+   ```
 
-3. Set up Supabase
-   - Create a project at https://supabase.com
-   - Run the SQL schema from supabase_schema.sql in the SQL Editor
-   - Copy your project URL and anon key into .env
+3. Set up Supabase:
+   - Create a project on [supabase.com](https://supabase.com)
+   - Execute the SQL schema from `supabase_schema.sql` in the SQL Editor
+   - Copy your project URL and anon public key
 
-4. Add your .env file
+4. Configure environment variables in `.env`:
+   ```env
    SUPABASE_URL=https://your-project.supabase.co
    SUPABASE_ANON_KEY=your-anon-key
+   ```
 
-5. Run the app
+5. Run the application:
+   ```bash
    flutter run
+   ```
 
-## 🔐 Make Yourself Admin
-After registering, go to Supabase Dashboard → Table Editor → profiles
-→ find your row → change role from user to admin.
+---
 
-## 📄 License
-MIT
+## Admin Configuration
+
+To grant administrative privileges:
+1. Navigate to your Supabase Dashboard -> Table Editor -> `profiles`.
+2. Locate your user record.
+3. Update the `role` field from `user` to `admin`.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
