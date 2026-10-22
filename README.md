@@ -1,5 +1,14 @@
 # 🏨 Resort Booking App
 
+<div align="center">
+
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
+</div>
+
 A full-stack resort room booking application built with Flutter and Supabase, 
 inspired by platforms like BookMyShow — but for luxury resort stays.
 
@@ -43,7 +52,7 @@ inspired by platforms like BookMyShow — but for luxury resort stays.
 ## 🚀 Getting Started
 
 1. Clone the repo
-   git clone https://github.com/Midhun_M-git/Resort_app.git
+   git clone https://github.com/Midhun-M-git/Resort_app.git
 
 2. Install dependencies
    flutter pub get
